@@ -1,0 +1,75 @@
+{% extends 'hod_template/base.html' %}
+{% block page_title %}
+    Ajouter un enseignant
+{% endblock page_title %}
+{% block main %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Ajouter un enseignant</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form role="form" action="/add_staff_save" method="post">
+                            {% csrf_token %}
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>adresse mail</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Votre email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mot de Passe</label>
+                                    <input type="password" class="form-control" placeholder="Votre Mot de Passe" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Prénom</label>
+                                    <input type="text" class="form-control" placeholder="Votre Prénom" name="first_name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nom</label>
+                                    <input type="text" class="form-control" placeholder=" Votre Nom" name="last_name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nom d'utilisateur</label>
+                                    <input type="text" class="form-control" placeholder="Votre Nom d'utilisateur" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label>Adresse</label>
+                                    <input type="text" class="form-control" placeholder="Votre adresse postale" name="address">
+                                </div>
+                                <div class="form-group">
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                            {% if message.tags == 'error' %}
+                                                <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                                            {% endif %}
+                                            {% if message.tags == 'success' %}
+                                                <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+{% endblock main %}
