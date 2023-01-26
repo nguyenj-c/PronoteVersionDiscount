@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-27 18:14+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\PronoteVersionDiscount\settings.py:129
+msgid "English"
+msgstr ""
+
+#: .\PronoteVersionDiscount\settings.py:130
+msgid "French"
+msgstr ""
+
+#: .\templates\admin_home.html:5 .\templates\staff_home.html:5
+#: .\templates\staff_home.html:27 .\templates\student_home.html:5
+#: .\templates\student_home.html:26
+msgid "Home"
+msgstr "Accueil"
+
+#: .\templates\admin_home.html:12 .\templates\admin_home.html:19
+#: .\templates\hod_template\admin_base.html:8
+#: .\templates\hod_template\admin_base.html:15
+msgid "Admin's area"
+msgstr "Espace Admin"
+
+#: .\templates\base.html:53
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: .\templates\footer.html:4
+msgid "All Rights Reserved."
+msgstr "Tous Droits Reserver."
+
+#: .\templates\hod_template\admin_base.html:23
+msgid "Add a teacher"
+msgstr "Ajouter un enseignant"
+
+#: .\templates\hod_template\admin_base.html:33
+msgid "Manage teachers"
+msgstr "Gestion des enseignant"
+
+#: .\templates\hod_template\admin_base.html:42
+msgid "Add a student"
+msgstr "Ajouter un eleve"
+
+#: .\templates\hod_template\admin_base.html:52
+msgid "Manage students"
+msgstr "Gestion des eleves"
+
+#: .\templates\hod_template\admin_base.html:61
+msgid "Add a course"
+msgstr "Ajouter une classe"
+
+#: .\templates\hod_template\admin_base.html:71
+msgid "Manage courses"
+msgstr "Gestion des classes"
+
+#: .\templates\hod_template\admin_base.html:80
+msgid "Add a course subject"
+msgstr "Ajouter un sujet de cours"
+
+#: .\templates\hod_template\admin_base.html:90
+msgid "Manage courses subjects"
+msgstr "Gestion des sujet de cours"
+
+#: .\templates\login.html:8
+msgid "Pronote Login"
+msgstr "Pronote Connexion"
+
+#: .\templates\login.html:31
+msgid "Enter your login details"
+msgstr "Entrez vos identifiants de connexion"
+
+#: .\templates\login.html:54
+msgid "Login"
+msgstr "Connexion"
+
+#: .\templates\login.html:57
+msgid "Forgot your password?"
+msgstr "Mot de Passe oublié ?"
+
+#: .\templates\staff_home.html:9 .\templates\staff_home.html:12
+msgid "Teacher's area"
+msgstr "Espace Enseignant"
+
+#: .\templates\staff_home.html:19
+msgid "Teacher"
+msgstr "Enseignant"
+
+#: .\templates\student_home.html:8 .\templates\student_home.html:11
+msgid "Student's area"
+msgstr "Espace Etudiant"
+
+#: .\templates\student_home.html:18
+msgid "Student"
+msgstr "Etudiant"

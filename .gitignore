@@ -1,0 +1,12 @@
+!.idea/*
+!.idea/inspectionProfiles
+!.idea/inspectionProfiles/*
+!.idea/inspectionProfiles/Project_Default.xml
+!.idea/*.idea/*
+!.idea/php-test-framework.xml
+!.idea/php.xml
+!.idea/remote-mappings.xml
+!.idea/modules.xml
+!.idea/workspace.xml
+!.idea/PronoteVeriosnDiscount.iml
+!.idea/vcs.xml

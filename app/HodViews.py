@@ -4,12 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from app.forms import AddStudentForm, EditStudentForm
+from app.forms.student import AddStudentForm, EditStudentForm
 from app.models import CustomUser, Staffs, Courses, Subjects, Students
-
-
-def admin_home(request):
-    return render(request, "hod_template/home.html")
 
 
 def add_staff(request):
