@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block page_title %}
+{% trans "Home" %}
+{% endblock page_title %}
+
+{% block title %}
+        <title>{% trans "Teacher's area" %}</title>
+{% endblock title %}
+{% block space %}
+    {% trans "Teacher's area" %}
+{% endblock space %}
+{% block sidebarUrl%}
+    {% url 'staff_home' as staff_home %}
+    <a href="{{ staff_home }}" class="brand-link {% if request.path == staff_home %} active {% endif %}">
+{% endblock sidebarUrl%}
+{% block sidebarRole%}
+{% trans "Teacher" %}
+{% endblock sidebarRole%}
+{% block sidebarMenu %}
+                    <li class="nav-item">
+                            {% url 'staff_home' as staff_home %}
+                            <a href="{{ staff_home }}" class="nav-link {% if request.path == staff_home %} active {% endif %}">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                {% trans "Home" %}
+                            </p>
+                        </a>
+                    </li>
+{% endblock sidebarMenu %}
+{% block home %}
+                            <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{% url 'staff_home' %}">Home</a></li>
+                        </ol>
+{% endblock home %}
+{% block main %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+        </div>
+    </section>
+    <!-- /.content -->
+{% endblock main %}
+

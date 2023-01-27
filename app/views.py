@@ -1,33 +1,58 @@
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic import TemplateView, FormView, View, ListView, DetailView
 from django.contrib import messages
 from django.contrib.auth import login, logout
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from django.urls import reverse
-
 from app.EmailBackEnd import EmailBackEnd
+from app.forms.login import LoginForm
 
 
-def ShowLoginPage(request):
-    return render(request, "login_page.html")
+# Authentication part
+def store_role_name(request, roleName):
+    request.session['role'] = roleName
 
 
-def doLogin(request):
-    if request.method != "POST":
-        return HttpResponse("<h2>Methode Erroné</h2>")
-    else:
-        user = EmailBackEnd.authenticate(request, username=request.POST.get("email"),
-                                         password=request.POST.get("password"))
-        if user != None:
-            login(request, user)
+class LoginFormView(FormView):
+    template_name = 'login.html'
+    form_class = LoginForm
+
+    def form_valid(self, form):
+        email = form.cleaned_data['email']
+        password = form.cleaned_data['password']
+        user = EmailBackEnd.authenticate(self=self.request,username=email, password=password)
+        if user is not None:
+            login(self.request, user)
             if user.user_type == "1":
-                return HttpResponseRedirect('/admin_home')
+                store_role_name(self.request,"admin")
+                return redirect(reverse('admin_home'))
             elif user.user_type == "2":
-                return HttpResponseRedirect(reverse("staff_home"))
+                store_role_name(self.request,"staff")
+                return redirect(reverse("staff_home"))
             else:
-                return HttpResponseRedirect(reverse("student_home"))
+                store_role_name(self.request,"student")
+                return redirect(reverse("student_home"))
+
+        return super().form_invalid(form)
+
+
+class LogoutView(SuccessMessageMixin, TemplateView):
+    def get(self, request, **kwargs):
+        del request.session['role']
+        logout(request)
+        return redirect("/")
+
+
+class HomeView(View):
+    def get(self, request, **kwargs):
+        if request.session['role'] == "admin":
+            return render(request, "admin_home.html")
+        elif request.session['role'] == "staff":
+            return render(request, "staff_home.html")
         else:
-            messages.error(request, "Identifiants/Mot de passe incorrect")
-            return HttpResponseRedirect("/")
+            return render(request, "student_home.html")
+
 
 
 def GetUserDetails(request):
@@ -36,8 +61,3 @@ def GetUserDetails(request):
             "Utilisateur : " + request.user.email + "<br>type d'utilisateur : " + str(request.user.user_type))
     else:
         return HttpResponse("Veuillez d'abord vous connectez svp.")
-
-
-def logout_user(request):
-    logout(request)
-    return HttpResponseRedirect("/")
